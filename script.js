@@ -13,7 +13,23 @@ function onReady() {
     const arcaneScepterButton = document.querySelector('.arcane-scepter');
     const entangleButton = document.querySelector('.entangle');
     const dragonBladeButton = document.querySelector('.dragon-blade');
-    const starFire = document.querySelector('.star-fire');
+    const starFireButton = document.querySelector('.star-fire');
+
+    arcaneScepterButton.addEventListener('click', function(){
+        console.log("clicked septar");
+    });
+
+    entangleButton.addEventListener('click', function(){
+        console.log("clicked entangle");
+    });
+
+    dragonBladeButton.addEventListener('click', function(){
+        console.log("clicked dragon");
+    });
+
+    starFireButton.addEventListener('click', function(){
+        console.log("clicked star");
+    });
 
     // 🧠 Remember
     // - Handle events that ->
