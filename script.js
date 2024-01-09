@@ -57,10 +57,15 @@ function playerAttacks(apCost, hpDamage) {
     // Player loses if AP is less than or = to 0
     if (playerAP <= 0) {
         playerAP = 0;
+        //Adds jump class to the fungus
+        document.querySelector('.freaky-fungus').classList.replace('walk', 'jump');
         alert("You have no more AP :-: the fungi win");
+        disableButtons()
         //Player wins in fungus HP is less than or = to 0
     } else if (fungusHP <= 0) {
         fungusHP = 0;
+        //Adds the dead class to the fungus
+        document.querySelector('.freaky-fungus').classList.replace('walk', 'dead');
         alert("You killed the fungus and saved the world!");
     } else {
         // if win or lose conditions aren't met then it update the DOM
@@ -68,12 +73,18 @@ function playerAttacks(apCost, hpDamage) {
     }
 }
 
-
-// Need to make a function that updates the DOM 
 // updates the text above the buttons and fungus
 
 function updateDOM() {
     // Sets the HP and AP text to the playerAP and fungusHP after attack
     document.querySelector('.ap-text').textContent = `${playerAP} AP`;
     document.querySelector('.hp-text').textContent = `${fungusHP} HP`;
+}
+
+function disableButtons() {
+    const attackButtons = document.querySelectorAll('.attack-btn')
+
+    attackButtons.forEach(button => {
+        button.disabled = true;
+    });
 }
