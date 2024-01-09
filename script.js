@@ -48,25 +48,32 @@ function onReady() {
 
 onReady()
 
-// Need to make a function handle the attacks 
-// **HP and AP can't be negative - if statement
-// IF hp is 0 you win - replace walk class with dead class 
+// Made a function that handles the attacks
 
 function playerAttacks(apCost, hpDamage) {
-    // Stops players from attacking if they dont have the AP
-    if (playerAP >= apCost) {
-        // Updates the state/global variables
-        playerAP -= apCost;
-        fungusHP -= hpDamage;
-    }
-    // Sets the win condition for the player
-    if (fungusHP === 0) {
-        alert("The monster is dead you saved the world ❤️")
-        return;
+    // removes the ap cost and hpdamage from the state variable
+    playerAP -= apCost;
+    fungusHP -= hpDamage;
+    // Player loses if AP is less than or = to 0
+    if (playerAP <= 0) {
+        playerAP = 0;
+        alert("You have no more AP :-: the fungi win");
+        //Player wins in fungus HP is less than or = to 0
+    } else if (fungusHP <= 0) {
+        fungusHP = 0;
+        alert("You killed the fungus and saved the world!");
+    } else {
+        // if win or lose conditions aren't met then it update the DOM
+        updateDOM()
     }
 }
 
 
 // Need to make a function that updates the DOM 
-// IF ap is 0 monster wins - rplace walk with jump give all buttons a disabled atrribue
-// updates the text above the buttons and functions
+// updates the text above the buttons and fungus
+
+function updateDOM() {
+    // Sets the HP and AP text to the playerAP and fungusHP after attack
+    document.querySelector('.ap-text').textContent = `${playerAP} AP`;
+    document.querySelector('.hp-text').textContent = `${fungusHP} HP`;
+}
