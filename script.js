@@ -39,3 +39,20 @@ function onReady() {
 
 
 onReady()
+
+// **HP and AP can't be negative - if statement
+// IF hp is 0 you win - replace walk class with dead class 
+// IF ap is 0 monster wins - rplace walk with jump give all buttons a disabled atrribue
+// Need to make a function handle the attacks 
+
+// Need to make a function that updates the DOM 
+// updates the text above the buttons and functions
+
+
+
+
+
+
+
+function playerAttacks(apCost, hpDamage) {
+}
