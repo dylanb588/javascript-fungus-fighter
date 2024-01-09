@@ -18,22 +18,25 @@ function onReady() {
     arcaneScepterButton.addEventListener('click', function(){
         console.log("clicked septar");
         playerAttacks(12, 14);
-        console.log(playerAP, fungusHP);
+        console.log(playerAP, fungusHP)
     });
 
     entangleButton.addEventListener('click', function(){
         console.log("clicked entangle");
-        playerAttacks()
+        playerAttacks(23, 9)
+        console.log(playerAP, fungusHP)
     });
 
     dragonBladeButton.addEventListener('click', function(){
         console.log("clicked dragon");
-        playerAttacks()
+        playerAttacks(38, 47)
+        console.log(playerAP, fungusHP)
     });
 
     starFireButton.addEventListener('click', function(){
         console.log("clicked star");
-        playerAttacks()
+        playerAttacks(33, 25)
+        console.log(playerAP, fungusHP)
     });
 
     // 🧠 Remember
