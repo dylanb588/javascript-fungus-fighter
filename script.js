@@ -17,18 +17,23 @@ function onReady() {
 
     arcaneScepterButton.addEventListener('click', function(){
         console.log("clicked septar");
+        playerAttacks(12, 14);
+        console.log(playerAP, fungusHP);
     });
 
     entangleButton.addEventListener('click', function(){
         console.log("clicked entangle");
+        playerAttacks()
     });
 
     dragonBladeButton.addEventListener('click', function(){
         console.log("clicked dragon");
+        playerAttacks()
     });
 
     starFireButton.addEventListener('click', function(){
         console.log("clicked star");
+        playerAttacks()
     });
 
     // 🧠 Remember
@@ -40,19 +45,25 @@ function onReady() {
 
 onReady()
 
+// Need to make a function handle the attacks 
 // **HP and AP can't be negative - if statement
 // IF hp is 0 you win - replace walk class with dead class 
-// IF ap is 0 monster wins - rplace walk with jump give all buttons a disabled atrribue
-// Need to make a function handle the attacks 
-
-// Need to make a function that updates the DOM 
-// updates the text above the buttons and functions
-
-
-
-
-
-
 
 function playerAttacks(apCost, hpDamage) {
+    // Stops players from attacking if they dont have the AP
+    if (playerAP >= apCost) {
+        // Updates the state/global variables
+        playerAP -= apCost;
+        fungusHP -= hpDamage;
+    }
+    // Sets the win condition for the player
+    if (fungusHP === 0) {
+        alert("The monster is dead you saved the world ❤️")
+        return;
+    }
 }
+
+
+// Need to make a function that updates the DOM 
+// IF ap is 0 monster wins - rplace walk with jump give all buttons a disabled atrribue
+// updates the text above the buttons and functions
