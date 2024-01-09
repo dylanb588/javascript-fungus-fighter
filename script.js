@@ -60,13 +60,15 @@ function playerAttacks(apCost, hpDamage) {
         //Adds jump class to the fungus
         document.querySelector('.freaky-fungus').classList.replace('walk', 'jump');
         alert("You have no more AP :-: the fungi win");
-        disableButtons()
+        updateDOM();
+        disableButtons();
         //Player wins in fungus HP is less than or = to 0
     } else if (fungusHP <= 0) {
         fungusHP = 0;
         //Adds the dead class to the fungus
         document.querySelector('.freaky-fungus').classList.replace('walk', 'dead');
         alert("You killed the fungus and saved the world!");
+        updateDOM();
     } else {
         // if win or lose conditions aren't met then it update the DOM
         updateDOM()
@@ -79,8 +81,12 @@ function updateDOM() {
     // Sets the HP and AP text to the playerAP and fungusHP after attack
     document.querySelector('.ap-text').textContent = `${playerAP} AP`;
     document.querySelector('.hp-text').textContent = `${fungusHP} HP`;
+    
+    document.getElementById('ap-meter').value = playerAP;
+    document.getElementById('hp-meter').value = fungusHP;
 }
 
+// Function to diable buttons
 function disableButtons() {
     const attackButtons = document.querySelectorAll('.attack-btn')
 
